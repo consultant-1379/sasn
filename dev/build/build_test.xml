@@ -1,0 +1,21 @@
+<project name="sasn" default="test_all">
+    <property name="module.name" value="sasn"/>
+    <property file="${user.home}/EniqBuild/BH/build.properties"/>
+    <property name="ant.common" value="${cc.base}/tools/ant_common"/>
+    <property file="${ant.common}/common.properties"/>
+    <property name="module.build" value="${module.sasn.build}"/>
+    <property name="module.base" value="${module.sasn.base}"/>
+    <property name="module.dependants" value="${module.sasn.dependants}"/>
+    <import file="${ant.common}/common.xml"/>
+    <property name="tests.to.run" value="**/*Test.class"/>
+
+    <path id="sasn.lib.classpath">
+        <path refid="plaform.lib.classpath"/>
+      <path location="${module.parser.pkg}"/>
+      <path location="${module.common_utilities.pkg}"/>
+    </path>
+    <path id="sasn.test.classpath">
+        <path refid="platform.test.classpath"/>
+        <path refid="sasn.lib.classpath"/>
+    </path>
+</project>
